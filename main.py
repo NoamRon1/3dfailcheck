@@ -104,7 +104,7 @@ def send_email_with_attachment(user_name, print_name, recipient_email):
     # Read the attachment file (JPEG) and encode it in base64
     attachment_path = "camera_img.jpg"
     sender_email = 'noam.ron@matics.live'  # Replace with your email
-    sender_password = 'fagiqeznybkyxshl'  # Replace with your password
+    sender_password = ''  # Replace with your password
     printer_name = "UltiShmulker"
     body = f"hello {user_name}, we are very sorry to tell you that the print {print_name}, you printed at {printer_name} failed.\n please check the printer and cancel it if needed.\n the image of the print is attached.\n if the print is ok please send us feedback for improving the sevice at noam2009r@gmail.com"
     subject = 'Print Failed'
