@@ -202,6 +202,8 @@ def run():
         lcd.clear()
         lcd.move_to(3, 0)
         lcd.write("Working. Click to abort")
+        lcd.move_to(0,1)
+        lcd.write(int(((time.time()-start_time)/60*100/minutes)/16)*"#")
         if image_check():
             error = True
             break
