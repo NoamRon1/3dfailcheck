@@ -166,10 +166,31 @@ def choose_time():
     minutes = 0  # encoder will change it
     while not ok:
         lcd.clear()
-        lcd.move_to(4, 0)
+        lcd.move_to(6, 0)
+        lcd.write("print time:")
+        lcd.move_to(4, 1)
         lcd.write(f"{minutes // 60}:{minutes % 60}")
     ok = False
     return minutes
+
+
+def abort_confirmation():
+    global ok
+    index = 1  # encoder spin will change it
+    while not ok:
+        lcd.clear()
+        lcd.move_to(0, 0)
+        lcd.write("are you sure?")
+        lcd.move_to(1, 1)
+        if (index % 2 == 0):
+            lcd.write("{yes}      no")
+        else:
+            lcd.write("yes      {no}")
+    ok = False
+    if (index % 2 == 0):
+        return True
+    else:
+        return False
 
 
 def run():
