@@ -8,9 +8,9 @@ from fpioa_manager import fm
 from board import board_info
 
 # -----------------------------------------#
-ImagePath = ""
 scl = 22
 sda = 21
+enc_button_pin = 0
 ok = False  # encoder will change it
 error = False  # if the system detect an error will be True
 
@@ -22,6 +22,13 @@ def irq_change():
     ok = True
     print("OK was set to True")
 
+
+# -----------------------------------------#
+enc_button = Pin(enc_button_pin, Pin.IN, Pin.PULL_UP)
+enc_button.irq(trigger=Pin.IRQ_FALLING, handler=irq_change)
+
+
+# -----------------------------------------#
 
 def lcd_setup():
     global scl, sda
